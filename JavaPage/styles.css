@@ -1,0 +1,28 @@
+.page0 {
+    text-align: center;
+    background-color: rgb(210, 210, 210);
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    overflow: scroll;
+    height: fit-content;
+}
+#page1{
+    text-align: center;
+    background-color: rgb(220, 220, 220);
+    overflow: scroll;
+    height: fit-content;
+}
+.button{
+    height: 50px;
+    width: auto;
+    grid-column: 3;
+}
+.gridleft{
+    grid-column:1 ;
+}
+.gridmiddle{
+    grid-column:2 ;
+}
+.gridright{
+    grid-column:3 ;
+}
