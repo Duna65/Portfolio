@@ -32,6 +32,18 @@
             a=n0*n1
             AddText('out',a)
         }
+            function divide(){
+            n0 = document.getElementById("n0").value
+            n1 = document.getElementById("n1").value
+            a=n0/n1
+            AddText('out',a)
+        }
+            function subtract(){
+            n0 = document.getElementById("n0").value
+            n1 = document.getElementById("n1").value
+            a=n0-n1
+            AddText('out',a)
+        }
     </script>
     <button onclick="AddText('p','I am Dallin Lyman and I am in website development 2')">Who is the creator?</button>
     <p id="p"></p>
@@ -42,6 +54,8 @@
     <br>
     <button onclick="add()">add</button>
     <button onclick="multiply()">multiply</button>
+    <button onclick="divide()">divide</button>
+    <button onclick="subtract()">subtract</button>
     <p id="out"></p>
         <br>
         <br>
