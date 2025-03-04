@@ -12,6 +12,14 @@
     overflow: scroll;
     height: fit-content;
 }
+#page2{
+    text-align: center;
+    background-color: rgb(220, 220, 220);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    overflow: scroll;
+    height: fit-content;
+}
 .button{
     height: 50px;
     width: auto;
