@@ -18,6 +18,8 @@
     <p id="cp">1</p>
     <h4>Clicks:</h4>
     <p id="out">0</p>
+    <h4>Super Clicks:</h4>
+    <p id="sc">0</p>
     <button onclick="add()">Click Me!</button>
 </div>
 <div class="gridmiddle">
@@ -34,7 +36,18 @@
     <h5> +100 clicks per second</h5>
     <button id="fi" onclick="fifth()">10000 clicks</button>
 </div>
+<div class="gridright">
+    <h5>1 super click</h5>
+    <button id="scc" onclick="sclic()">1000 clicks</button>
+    <h5>x2 clicks</h5>
+    <p>removes all stats except the click power</p>
+    <button id="redo" onclick="redo()">15 super clicks</button>
+</div>
     <script>
+        var cval = 1
+        var rcost = 15
+        var radd = 3
+        var sccost = 1000
         var fiadd = 100
         var ficost = 10000
         var foadd = 50;//add = the amount to add to the price when bought
@@ -46,13 +59,14 @@
         var tcost = 200;
         var scost = 50;
         var fcost = 5;
+        var sclick = 0;//super clicks
         var clickp = 1;//click power
         var background = 0;//background clicks per .01 second
         var backval = 0;//shown background clicks
         var sum = 0;//total clicks
         setInterval(adda, 10);//sets a .01 second interval
     function add() {//adds the clickpower to the total and prints it
-            sum += clickp;
+            sum += clickp * cval;
             AddText('out', Math.round(sum)); 
     }
     function clic(){//click upgrade, all upgrades are built the same
@@ -65,7 +79,17 @@
         AddText('cp', clickp);//prints your upgrade effect
         }
     }
-    function first(){//
+    function sclic(){
+        if(sum >= sccost){
+        sum -= sccost;
+        sclick += 1;
+        sccost = Math.round(sccost * 1.1 + 200);
+        AddText('scc', sccost + " clicks");
+        AddText('out', Math.round(sum));
+        AddText('sc', sclick);
+        }
+    }
+    function first(){//the first of the clicks per second adders
         if(sum >= fcost){
         sum -= fcost;
         background += 0.002;
@@ -126,8 +150,45 @@
         }
     }
     function adda(){//adds the cps to the sum every second
-        sum += background;
+        sum += background * cval;
         AddText('out', Math.round(sum));
+    }
+    function redo(){
+        if(sclick >= rcost){
+        sccost = 1000
+        fiadd = 100
+        ficost = 10000
+        foadd = 50;
+        focost = 1000;
+        fadd = 3;
+        sadd = 5;
+        tadd = 10;
+        tcost = 200;
+        scost = 50;
+        fcost = 5;
+        sclick = 0;
+        background = 0;
+        backval = 0;
+        sum = 0;
+        if (clickp>=11){
+            clickp=10
+        }
+        AddText('out', Math.round(sum));
+        AddText('fi', ficost + " clicks");
+        AddText('cps', backval);
+        AddText('fo', focost + " clicks");
+        AddText('t', tcost + " clicks");
+        AddText('s', scost + " clicks");
+        AddText('f', fcost + " clicks");
+        AddText('scc', sccost + " clicks");
+        AddText('sc', sclick);
+        AddText('cp', clickp);
+        AddText('c', ccost + " clicks");
+        cval*=2
+        rcost = Math.round(rcost + radd);
+        radd*=1.1;
+        AddText('redo', rcost + " super clicks");
+        }
     }
     </script>
     <div class="gridmiddle">

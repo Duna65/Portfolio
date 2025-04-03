@@ -16,7 +16,7 @@
     text-align: center;
     background-color: rgb(220, 220, 220);
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 30% 30%;
     overflow: scroll;
     height: fit-content;
 }
