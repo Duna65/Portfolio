@@ -44,9 +44,8 @@
     <button id="redo" onclick="redo()">15 super clicks</button>
 </div>
     <script>
-        var cval = 1
         var rcost = 15
-        var radd = 3
+        var radd = 4
         var sccost = 1000
         var fiadd = 100
         var ficost = 10000
@@ -59,6 +58,7 @@
         var tcost = 200;
         var scost = 50;
         var fcost = 5;
+        var cval = 1//click value
         var sclick = 0;//super clicks
         var clickp = 1;//click power
         var background = 0;//background clicks per .01 second
@@ -186,7 +186,7 @@
         AddText('c', ccost + " clicks");
         cval*=2
         rcost = Math.round(rcost + radd);
-        radd*=1.1;
+        radd*=1.2;
         AddText('redo', rcost + " super clicks");
         }
     }

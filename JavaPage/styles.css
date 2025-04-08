@@ -34,3 +34,7 @@
 .gridright{
     grid-column:3 ;
 }
+.userinfo{
+    grid-column:2 ;
+    text-align: center;
+}
