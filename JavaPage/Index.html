@@ -49,38 +49,38 @@
         var zip = 'filler'
         var message = 'hi'
         function Submit(){
-            email = document.getElementById("email").value
+            email = document.getElementById("email").value//gets variables
             phone = document.getElementById("phone").value
             zip = document.getElementById("zip").value
             message = document.getElementById("message").value
-            if (email.includes("@")==true&&email.includes(".")==true){
+            if (email.includes("@")==true&&email.includes(".")==true){//checks if the email is valid
                 aok = true
             } else{
                 aok = false
                 AddText('emailp','please input a valid email')
             }
-            if(phone.length==10&&parseInt(phone)){
+            if(phone.length==10&&parseInt(phone)){//checks if the phone number is valid and splits it into 3 peices
                 aok=true
                acode = phone.slice(0, 3)
                sec = phone.slice(3, 6)
                thi = phone.slice(6, 10)
-            } else if (phone.includes("-")||phone.includes(" ")){
+            } else if (phone.includes("-")||phone.includes(" ")){//checks if the user divided the numbers already
                 aok=true
                 acode = phone.slice(0, 3); 
                 sec = phone.slice(4, 7);    
                 thi = phone.slice(8, 12);
             } else {
                 aok=false
-                AddText('phonep','please input a valid phone number')
+                AddText('phonep','please input a valid phone number')//prints error
             }
-            if(zip.length==5&&parseInt(zip)){
+            if(zip.length==5&&parseInt(zip)){//checks if zip code is valid
                 aok=true
             } else{
                 aok=false
                 AddText('zipp','please input a valid zip code')
             }
             if (aok==true){
-                phone = '+1 ('+ acode + ')-' + sec + '-' + thi
+                phone = '+1 ('+ acode + ')-' + sec + '-' + thi//prints phone number and everything else
                 AddText('emailp','Email: '+email)
                 AddText('phonep','Phone Number: '+phone)
                 AddText('zipp','Zip Code: '+zip)
